@@ -1,11 +1,10 @@
 class CreateAddresses < ActiveRecord::Migration[6.1]
   def change
     create_table :addresses do |t|
-      t.integer :customer_id
-      t.string :name
-      t.string :postal_code
-      t.string :address
-      t.boolean :is_active
+      t.string :name           ,null: false
+      t.string :postal_code    ,null: false
+      t.string :address        ,null: false
+      t.boolean :is_active     ,null: false
 
       t.timestamps
     end
