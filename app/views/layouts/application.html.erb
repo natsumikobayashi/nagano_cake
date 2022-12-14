@@ -13,12 +13,39 @@
   <body>
     <header>
       <div class="container">
-      <h1>ながのケーキ</h1>
-      
+        <div class="row">
+           <h1>ながのケーキ</h1>
+           <div class="col">
+      <% if admin_signed_in? %>
+       <% if request.fullpath.include? "/admin" %>
+        <%= link_to '商品一覧', admin_items_path %>
+        <%= link_to '会員一覧', admin_customers_path %>
+        <%= link_to '注文履歴一覧', admin_orders_show_path %>
+        <%= link_to 'ジャンル一覧', admin_genres_path %>
+        <%= link_to 'adminログアウト', destroy_admin_session_path, method: :delete %>
+        <% else %>
+        <%= link_to 'About', about_path %>
+        <%= link_to '商品一覧', items_path %>
+        <%= link_to '新規登録', new_customer_registration_path %>
+        <%= link_to 'adminログイン', new_admin_session_path %>
+        <% end %>
+        <% elsif customer_signed_in? %>
+        <%= link_to 'マイページ', customers_show_path %>
+        <%= link_to '商品一覧', items_path %>
+        <%= link_to 'カート', cart_items_path %>
+        <%= link_to 'ログアウト', destroy_customer_session , method: :delete %>
+        <% else %>
+        <%= link_to 'About', about_path %>
+        <%= link_to '商品一覧', items_path %>
+        <%= link_to '新規登録', new_customer_registration_path %>
+        <%= link_to 'ログイン', new_customer_session_path %>
+        <% end %>
+        </div>
       </div>
-      
+      </div>
+
     </header>
-    
+
     <%= yield %>
   </body>
 </html>

@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     get 'homes/top' => 'homes#top'
     resources :items, only:[:index, :new, :create, :show, :edit]
     patch 'items/update' => 'items#update'
+    resources :genres, only:[:index, :create, :edit, :update]
+    resources :customers, only:[:index, :show, :edit, :update]
     get 'order_details/update'
     get 'orders/show'
     get 'orders/update'
