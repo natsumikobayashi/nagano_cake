@@ -10,10 +10,11 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.save!
-    redirect_to admin_item_path(:id)
+    redirect_to admin_item_path(@item.id) #数字として送る
   end
 
   def show
+    @item = Item.find(params[:id]) #パラメータからidを探して(params)、そのid(主キー)を持つitemを1件取得する
   end
 
   def edit
@@ -25,6 +26,6 @@ class Admin::ItemsController < ApplicationController
   private
   
   def item_params
-     params.require(:item).permit(:image, :name, :introduction, :genre_id, :price, :is_active)
+     params.require(:item).permit(:image, :name, :introduction, :genre_id, :price, :is_active, :id)
   end
 end
