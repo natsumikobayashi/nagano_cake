@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
-  
+
   #会員用
   #URL/admin/sign_in...
   devise_for :customers, controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-  
+
   root to: "public/homes#top"
 
    scope module: :public do
@@ -25,10 +25,10 @@ Rails.application.routes.draw do
     resources :cart_items, only: [:index, :update, :destroy, :create]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
-  
+
    namespace :admin do #これから
     get 'homes/top' => 'homes#top'
-    resources :items, only:[:index, :new, :create, :show, :edit]
+    resources :items, only:[:index, :new, :create, :show, :edit, :update]
     patch 'items/update' => 'items#update'
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
@@ -36,6 +36,6 @@ Rails.application.routes.draw do
     get 'orders/show'
     get 'orders/update'
   end
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
