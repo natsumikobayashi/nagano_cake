@@ -7,5 +7,5 @@
 <p>電話番号 <%= @customer.telephone_number %></p>
 <p>メールアドレス <%= @customer.email %></p>
 <P>会員ステータス <%= @customer.is_deleted %></P>
-<%= link_to '編集する',edit_admin_customer(@customer.id) %>
+<%= link_to '編集する',edit_admin_customer_path(@customer.id) %>
 <!--< link_to '注文履歴一覧を見る',>-->
