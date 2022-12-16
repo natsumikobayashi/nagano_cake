@@ -1,0 +1,31 @@
+<!--　編集中　!-->
+<h4>注文履歴詳細</h4>
+<P>購入者 <%= link_to admin_customer(@order.customer_id) do %><%= @order.customer_id.last_name %><%= @order.customer_id.first_name %><% end %></P>
+<p>注文日 <%= @order.created_at %></p>
+<p>配送先 〒<%= @order.postcode %><%= @order.address %></p>
+<p>支払方法 <%= @order.payment_method %></p>
+<p>注文ステータス</p>
+ <table>
+    <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+      <th></th>
+    </tr>
+    </thead>
+  <% @order_details.each do |order_details| %>
+  <tbody>
+  <tr>
+    <td><%=  admin_orders_show(order.id) do %><%= order.created_at %><% end %></td>
+    <td><%= order.customer_id.last_name %><%= order.customer_id.first_name %></td>
+    <td><%= order.order_id.quantity %></td>
+    <td><%= order.status %></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+  <% end %>
+  </table>

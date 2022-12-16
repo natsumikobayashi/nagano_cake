@@ -20,7 +20,7 @@
        <% if request.fullpath.include? "/admin" %>
         <%= link_to '商品一覧', admin_items_path %>
         <%= link_to '会員一覧', admin_customers_path %>
-        <%= link_to '注文履歴一覧', admin_orders_show_path %>
+        <%= link_to '注文履歴一覧', admin_homes_top_path %>
         <%= link_to 'ジャンル一覧', admin_genres_path %>
         <%= link_to 'adminログアウト', destroy_admin_session_path, method: :delete %>
         <% else %>
