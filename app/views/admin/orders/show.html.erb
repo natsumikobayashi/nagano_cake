@@ -1,4 +1,4 @@
-<!--　編集中　!-->
+
 <h4>注文履歴詳細</h4>
 <P>購入者 <%= link_to admin_customer(@order.customer_id) do %><%= @order.customer_id.last_name %><%= @order.customer_id.first_name %><% end %></P>
 <p>注文日 <%= @order.created_at %></p>

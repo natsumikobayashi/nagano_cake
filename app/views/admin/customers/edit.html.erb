@@ -1,8 +1,8 @@
 <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
 <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
 <p>会員ID <%= @customer.id %></p>
-<P>氏名</P> <%= f.text_field :first_name %> <%= f.text_field :last_name %>
-<p>フリガナ</p> <%= f.text_field :first_name_kana %> <%= f.text_field :last_name_kana %>
+<P>氏名</P> <%= f.text_field :last_name %> <%= f.text_field :first_name %>
+<p>フリガナ</p> <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %>
 <p>郵便番号</p>  <%= f.text_field :postal_code %>
 <p>住所</p>  <%= f.text_field :address %>
 <p>電話番号</p>  <%= f.text_field :telephone_number %>

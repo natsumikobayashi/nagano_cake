@@ -1,28 +1,23 @@
-<h2>新規会員登録</h2>
+<h2>ログイン</h2>
 <div class="container">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h6>会員の方はこちらからログイン</h6>
+<%= form_with model: @public, url: customer_session_path do |f| %>
+  <table><tr><td>
+    <div class="field"><%= f.label :"メールアドレス" %></td>
+    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+  </div></tr>
+  <tr><td>
+  <div class="field"><%= f.label :"パスワード" %></td>
+    <td><%= f.password_field :password, autocomplete: "current-password" %></td>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
+  <tr><td></td><td>
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+  </td></tr>
 <% end %>
+</table>
+<h6>会員登録がお済みでない方</h6>
+<%= link_to new_customer_registration_path do %>こちら<% end %>  から新規登録を行ってください
 <%= render "public/shared/links" %>
 </div>

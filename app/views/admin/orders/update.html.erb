@@ -1,2 +1,3 @@
 <h1>Admin::Orders#update</h1>
 <p>Find me in app/views/admin/orders/update.html.erb</p>
+<%= form.select @orders, Order.status.keys.to_a, {} %> <!--注文ステータス--
