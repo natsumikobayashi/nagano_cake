@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
    scope module: :public do
     resources :items, only:[:index, :show]
+    resources :orders, only:[:new, :create, :index, :show]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
     get 'homes/about' => 'homes#about',as: 'about'
     get 'customers/show' => 'customers#show'
     get 'customers/edit' => 'customers#edit'

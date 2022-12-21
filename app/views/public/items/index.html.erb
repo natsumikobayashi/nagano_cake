@@ -1,8 +1,8 @@
 <h4>商品一覧</h4><h7>(全<%= @item_count %>件)</h7>
 
 <% @items.each do |item| %>
-<p><%= link_to item_path(item.id) do %><%= image_tag item.get_item_image(100,100) %><% end %></p>
+<p><%= link_to item_path(item.id) do %><%= image_tag item.get_item_image(200,150) %><% end %></p>
 <p><%= item.name %></p>
-<p>¥<%= item.price %></p>
+<p>¥<%= item.add_tax_price.to_s(:dalimited) %></p>
 <% end %>
 <%= paginate @items %>

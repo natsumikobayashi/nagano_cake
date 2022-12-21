@@ -1,9 +1,9 @@
 <h4>商品詳細</h4>
-<%= image_tag @item.image %>
+<%= image_tag @item.get_item_image(240,180) %>
 <p>商品名 <%= @item.name %></p>
 <p>商品説明 <%= @item.introduction %></p>
 <p>ジャンル <%= @item.genre.name %></p>
-<p>税込価格 <%= @item.price %></p>
+<p>税込価格(税抜価格) <%= @item.add_tax_price.to_s(:dalimited) %>(<%= @item.price %>)円</p>
 <% if @item.is_active == true %>
 <p>販売ステータス 販売中</p>
 <% else %>
