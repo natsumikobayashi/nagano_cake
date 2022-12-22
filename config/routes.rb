@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     patch 'customers/update' => 'customers#update'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/subscribe'=> 'customers#subscribe'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #:idに吸収されないように上に書く
     resources :cart_items, only: [:index, :update, :destroy, :create]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
   end
 
    namespace :admin do #これから
