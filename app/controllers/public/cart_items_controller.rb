@@ -6,13 +6,13 @@ class Public::CartItemsController < ApplicationController
  end
 
  def create
-    @cart_item = CartItem.new(cart_item_params) #空箱を用意して、その中にパラメータから送られてきた値(cart_item_params)を入れる
-    @cart_item.customer_id = current_customer.id #保存するときに足りないcustomer_idを指定する
-    if CartItem.find_by(item_id: params[:item_id])#ここ編集中
-      　@cart_item_amount = @cart_item.amount.to_i
-      　@cart_item.amount += @cart_item_amount
-       @cart_item.amount.save
+    if current_customer.cart_items.exists?(item_id: params[:cart_item][:item_id])
+        @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+        @cart_item.amount += params[:cart_item][:amount].to_i
+        @cart_item.save
     else
+       @cart_item = CartItem.new(cart_item_params) #空箱を用意して、その中にパラメータから送られてきた値(cart_item_params)を入れる
+       @cart_item.customer_id = current_customer.id #保存するときに足りないcustomer_idを指定する
        @cart_item.save
     end
      redirect_to cart_items_path

@@ -4,6 +4,6 @@
  <p><%= @item.introduction %></p>
  <p>¥<%= @item.add_tax_price.to_s(:dalimited) %>(税込)</p>
   <%= f.hidden_field :item_id, :value => @item.id %>
-  <%= f.select :amount, *[1..10] %>
-  <%= f.submit "カートに入れる" %>
+ <%= f.select :amount, *[1..10] %>
+ <%= f.submit "カートに入れる" %>
 <% end %>
