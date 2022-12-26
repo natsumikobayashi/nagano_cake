@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
     #管理者用
   #URL/customers/sign_in...
   devise_for :admin ,skip: [:registrations, :passwords], controllers: {
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
    scope module: :public do
     resources :items, only:[:index, :show]
     resources :orders, only:[:new, :create, :index, :show]
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     get 'homes/about' => 'homes#about',as: 'about'

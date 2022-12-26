@@ -4,4 +4,13 @@ class Public::AddressesController < ApplicationController
 
   def edit
   end
+
+  def dreate
+  end
+
+  def update
+  end
+
+  def destroy
+  end
 end

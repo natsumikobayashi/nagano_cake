@@ -10,4 +10,19 @@ class Public::AddressesControllerTest < ActionDispatch::IntegrationTest
     get public_addresses_edit_url
     assert_response :success
   end
+
+  test "should get dreate" do
+    get public_addresses_dreate_url
+    assert_response :success
+  end
+
+  test "should get update" do
+    get public_addresses_update_url
+    assert_response :success
+  end
+
+  test "should get destroy" do
+    get public_addresses_destroy_url
+    assert_response :success
+  end
 end
