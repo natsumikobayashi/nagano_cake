@@ -25,6 +25,11 @@ class Public::OrdersController < ApplicationController
     @total = 0
   end
 
+   def create
+     @order = Order.new(order_params)
+     @order.save
+   end
+
   def index
   end
 
@@ -34,7 +39,7 @@ class Public::OrdersController < ApplicationController
   private
 
    def order_params
-       params.require(:order).permit(:payment_method, :postcode, :address, :name)
+       params.require(:order).permit(:payment_method, :postcode, :address, :name, :postage, :billing_amount, :status, :customer_id)
    end
 
 
