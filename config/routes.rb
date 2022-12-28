@@ -6,13 +6,6 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  #会員用
-  #URL/admin/sign_in...
-  devise_for :customers,skip: [:passwords],  controllers: {
-    registrations: "public/registrations",
-    sessions: "public/sessions"
-  }
-
   root to: "public/homes#top"
 
    scope module: :public do
@@ -22,11 +15,9 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     get 'homes/about' => 'homes#about',as: 'about'
-    get 'customers/show' => 'customers#show'
-    get 'customers/edit' => 'customers#edit'
-    patch 'customers/update' => 'customers#update'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/subscribe'=> 'customers#subscribe'
+    resource :customers, only:[:show, :edit, :update]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #:idに吸収されないように上に書く
     resources :cart_items, only: [:index, :update, :destroy, :create]
   end
@@ -39,6 +30,13 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:show, :update]
     end
+
+  #会員用
+  #URL/admin/sign_in...
+  devise_for :customers,skip: [:passwords],  controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
