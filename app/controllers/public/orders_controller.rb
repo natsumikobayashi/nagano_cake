@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
       @order.name = current_customer.last_name + current_customer.first_name
     elsif params[:address_option] == "2" #代入は=のみだが、等しいは==
       @address = Address.find(params[:order][:address_id])
-      @order.postcode = @address.postcode
+      @order.postcode = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
     elsif params[:address_option] == "3"

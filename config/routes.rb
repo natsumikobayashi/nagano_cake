@@ -37,10 +37,8 @@ Rails.application.routes.draw do
     patch 'items/update' => 'items#update'
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
-    get 'order_details/update'
-    get 'orders/show'
-    get 'orders/update'
-  end
+    resources :orders, only:[:show, :update]
+    end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
