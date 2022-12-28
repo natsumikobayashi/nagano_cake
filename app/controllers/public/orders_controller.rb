@@ -28,6 +28,17 @@ class Public::OrdersController < ApplicationController
    def create
      @order = Order.new(order_params)
      @order.save
+     @cart_items = current_customer.cart_items
+     @cart_items.each do |cart_item|
+       @order_detail = OrderDetail.new #(order_detail_params)
+       @order_detail.order_id = @order.id
+       @order_detail.item_id = cart_item.item.id
+       @order_detail.quantity = cart_item.amount
+       @order_detail.price = cart_item.item.add_tax_price
+       @order_detail.save!
+       cart_item.destroy #saveしたらcartitemを空にする
+     end
+     redirect_to orders_complete_path
    end
 
   def index
@@ -41,6 +52,5 @@ class Public::OrdersController < ApplicationController
    def order_params
        params.require(:order).permit(:payment_method, :postcode, :address, :name, :postage, :billing_amount, :status, :customer_id)
    end
-
 
 end

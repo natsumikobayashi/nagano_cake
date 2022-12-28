@@ -4,7 +4,8 @@
 
 <h6>新着商品</h6>
 <% @items.each do |item| %>
- <%= image_tag item.get_item_image(200,150) %><br>
+<%= link_to item_path(item.id) do %>
+ <%= image_tag item.get_item_image(200,150) %><% end %><br>
  <%= item.name %><br>
  <%= item.add_tax_price %><br>
  <% end %>

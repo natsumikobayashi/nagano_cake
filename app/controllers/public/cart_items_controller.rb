@@ -1,7 +1,8 @@
 class Public::CartItemsController < ApplicationController
+ before_action :is_mathing_login_customer, only: [:create]
 
  def index
-   @cart_items = CartItem.all
+   @cart_items = current_customer.cart_items
    @total = 0
  end
 
@@ -40,6 +41,12 @@ class Public::CartItemsController < ApplicationController
  private
  def cart_item_params
   params.require(:cart_item).permit(:item_id, :amount)
+ end
+
+ def is_mathing_login_customer
+  unless customer_signed_in?
+   redirect_to new_customer_session_path
+  end
  end
 
 end
