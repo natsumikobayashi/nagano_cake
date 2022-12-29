@@ -14,7 +14,7 @@
     <header>
       <div class="container">
         <div class="row">
-           <h1>ながのケーキ</h1>
+           <%= image_tag 'ロゴ.jpg', :size => '150x50' %>
            <div class="col">
       <% if admin_signed_in? %>
        <% if request.fullpath.include? "/admin" %>
