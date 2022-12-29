@@ -6,7 +6,7 @@
 <p>住所 <%= @customer.address %></p>
 <p>電話番号 <%= @customer.telephone_number %></p>
 <p>メールアドレス <%= @customer.email %></p>
-<P>会員ステータス <% if  @customer.is_deleted == true %>
+<P>会員ステータス <% if  @customer.is_deleted == false %>
                     有効
                     <% else %>
                     退会

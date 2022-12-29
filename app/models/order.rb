@@ -12,4 +12,16 @@ class Order < ApplicationRecord
     return total
   end
 
+  def item_subtotal #order_detailの商品一つずつの合計
+    total = 0
+    order_details.each do |order_detail|
+    total += order_detail.price * order_detail.quantity
+   end
+   return total
+  end
+
+  def address_display
+    '〒' + postcode + ' ' + address + ' ' + name
+  end
+
 end

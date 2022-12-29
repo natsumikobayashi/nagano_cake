@@ -20,3 +20,4 @@ ja: #1個でいい
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d"

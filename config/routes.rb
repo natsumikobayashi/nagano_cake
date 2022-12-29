@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
    scope module: :public do
     resources :items, only:[:index, :show]
-    resources :orders, only:[:new, :create, :index, :show]
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders, only:[:new, :create, :index, :show]
     get 'homes/about' => 'homes#about',as: 'about'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/subscribe'=> 'customers#subscribe'

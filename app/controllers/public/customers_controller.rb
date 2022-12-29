@@ -15,6 +15,14 @@ class Public::CustomersController < ApplicationController
 
 
   def confirm
+    @current_customer = current_customer
+  end
+
+  def subscribe
+    @customer = current_customer
+    @customer.update!(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
   private

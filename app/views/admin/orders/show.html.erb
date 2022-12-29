@@ -4,7 +4,7 @@
 <p>注文日 <%= l @order.created_at %></p>
 <p>配送先 〒<%= @order.postcode %><%= @order.address %></p>
 <p>支払方法 <%= @order.payment_method_i18n %></p>
-<p>注文ステータス</p>
+<p>注文ステータス<%= @order.status_i18n %></p>
  <table>
     <thead>
     <tr>
@@ -29,4 +29,21 @@
   </tr>
   </tbody>
   <% end %>
+  </table>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @order.item_subtotal %>円</td>
+      </tr>
+      <tr>
+        <td>送料</td>
+        <td><%= @order.postage %></td>
+      </tr>
+      <tr>
+        <td>請求金額合計</td>
+        <td><%= @order.billing_amount %>円</td>
+      </tr>
+    </tbody>
   </table>

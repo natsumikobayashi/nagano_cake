@@ -1,7 +1,7 @@
 <h4>配送先登録/一覧</h4>
+<%= form_with model: @address do |f| %>
 <table>
   <thead>
-    <%= form_with model: @address do |f| %>
     <tr>
       <td>郵便番号ハイフンなし</td>
       <td><%= f.text_field :postal_code %></td>
@@ -17,9 +17,9 @@
       <td> <%= f.text_field :name %></td>
       <td><%= f.submit "新規登録" %></td>
     </tr>
-    <% end %>
   </thead>
 </table>
+<% end %>
 <table>
   <thead>
     <tr>

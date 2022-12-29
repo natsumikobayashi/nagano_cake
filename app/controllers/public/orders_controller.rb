@@ -40,11 +40,16 @@ class Public::OrdersController < ApplicationController
      end
      redirect_to orders_complete_path
    end
+   
+   def complete
+   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
