@@ -1,7 +1,8 @@
-<h4>配送先編集</h4>
-<%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
-<table>
-  <tbody>
+<div class="container">
+ <span style="background-color:#dcdcdc">配送先編集</span>
+ <%= form_with model: @address, url: address_path(@address.id), method: :patch do |f| %>
+  <table>
+   <tbody>
     <tr>
       <td>郵便番号(ハイフンなし)</td>
       <td><%= f.text_field :postal_code %></td>
@@ -15,7 +16,7 @@
     <tr>
       <td>宛名</td>
       <td><%= f.text_field :name %></td>
-      <td><%= f.submit "変更内容を保存" %></td>
+      <td><%= f.submit "変更内容を保存", class: "btn btn-success btn-sm" %></td>
     </tr>
   </tbody>
 </table>

@@ -1,7 +1,12 @@
-<h2>ログイン</h2>
 <div class="container">
-  <h6>会員の方はこちらからログイン</h6>
-<%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="row">
+    <span style="background-color:#CCCCCC">ログイン</span></div>
+  <div class="row">
+    <span style="background-color:#CCCCCC">会員の方はこちらからログイン</span></div>
+   <%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-7">
   <table><tr><td>
     <div class="field"><%= f.label :"メールアドレス" %></td>
     <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
@@ -12,11 +17,13 @@
   </div>
   <tr><td></td><td>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class: "btn btn-primary btn-sm" %>
   </div>
   </td></tr>
 <% end %>
 </table>
-<h6>会員登録がお済みでない方</h6>
+<span style="background-color:#CCCCCC">会員登録がお済みでない方</span><br>
 <%= link_to new_customer_registration_path do %>こちら<% end %>  から新規登録を行ってください
+</div>
+</div>
 </div>

@@ -1,9 +1,16 @@
-<%= form_with model: @cart_item do |f| %>
- <p><%= image_tag @item.get_item_image(320,240) %></p>
- <p><%= @item.name %>(<%= @item.genre.name %>)</p>
- <p><%= @item.introduction %></p>
- <p>¥<%= @item.add_tax_price.to_s(:dalimited) %>(税込)</p>
-  <%= f.hidden_field :item_id, :value => @item.id %>
- <%= f.select :amount, *[1..10] %>
- <%= f.submit "カートに入れる" %>
-<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-lg-3">ジャンル検索</div>
+  <%= form_with model: @cart_item do |f| %>
+  <div class="col-lg-8">
+     <%= image_tag @item.get_item_image(300,200) %>
+     <strong><%= @item.name %>(<%= @item.genre.name %>)</strong>
+     <p><%= @item.introduction %></p>
+     <strong>¥<%= @item.add_tax_price.to_s(:dalimited) %></strong>(税込)
+     <p><%= f.hidden_field :item_id, :value => @item.id %></p>
+     <p><%= f.select :amount, *[1..10], include_blank: "個数選択"%></p>
+     <%= f.submit "カートに入れる", class: "btn btn-success" %>
+   </div>
+  <% end %>
+ </div>
+</div>
