@@ -1,5 +1,6 @@
 <div class="container">
- <span style="background-color:#CCCCCC">商品一覧</span><%= link_to "＋", new_admin_item_path %>
+ <span style="background-color:#CCCCCC">商品一覧</span>
+  <%= link_to new_admin_item_path do %><i class="fas fa-plus"></i><% end %>
   <div class="row">
     <div class="col">
      <table class="table">
