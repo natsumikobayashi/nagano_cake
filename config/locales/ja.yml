@@ -1,0 +1,23 @@
+ja: #1個でいい
+  enums:
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
+      status:
+        waiting: "入金待ち"
+        confirmation: "入金確認"
+        production: "制作中"
+        preparation: "発送準備中"
+        shipping: "発送済み"
+    order_detail:
+      making_status:
+        cannot: "制作不可"
+        waiting: "制作待ち"
+        makingnow: "制作中"
+        finish: "制作完了"
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d"

@@ -1,6 +1,16 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
+
+  def after_sign_in_path_for(resource)
+     customers_path
+  end
+
+  protected
+
+  def configure_permitted_paramaters
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postcode, :address, :telephone_number, :is_deleted, :password])
+  end
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
